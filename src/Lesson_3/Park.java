@@ -57,6 +57,9 @@ public class Park {
 
         Park park1 = new Park("Диснейленд", "Лондон", "9:00 - 24:00", attraction);
 
+        InfoAttraction attraction2 = new InfoAttraction("Горки", "Зона А", 2,10,12,"10:00 - 20:00", 300);
+        Park park2 = new Park(park1.namePark,  park1.locationPark, park1.workTimePark, attraction2);
         park1.printPark();
+        park2.printPark();
     }
 }
