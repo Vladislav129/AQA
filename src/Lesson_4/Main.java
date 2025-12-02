@@ -10,7 +10,7 @@ public class Main  {
     Cat cat3 = new Cat ("Маруся", 20);
     Cat cat4 = new Cat ("Тим", 35);
     Bowl bowl = new Bowl (80);
-   /* cat1.run(10);
+    cat1.run(10);
     cat1.run(201);
     cat1.swim(20);
     dog1.run(10);
@@ -19,8 +19,8 @@ public class Main  {
     dog1.swim(40);
         System.out.println("Количество всех животных " + Animals.countAninmals);
         System.out.println("Количество котов " + Cat.countCats);
-        System.out.println("Количество собак " + Dog.countDogs);*/
-        /*cat1.catInfo();
+        System.out.println("Количество собак " + Dog.countDogs);
+        cat1.catInfo();
         cat2.catInfo();
         bowl.info();
         cat1.eat(bowl);
@@ -29,7 +29,7 @@ public class Main  {
         cat2.eat(bowl);
         bowl.addFood(30);
         cat2.eat(bowl);
-        bowl.info();*/
+        bowl.info();
         for (int i = 0; i < Cat.arrCat.length; i++) {
             System.out.println(Cat.arrCat[i].getName());
         }
