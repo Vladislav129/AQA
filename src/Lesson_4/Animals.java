@@ -13,6 +13,9 @@ public abstract class Animals {
     public void swim(int distanceSwim) {
         System.out.println(name + " не умеет плавать");
     }
+    public void eat(int portionEat) {
+        System.out.println("Голодный кот");
+    }
 }
 
 
