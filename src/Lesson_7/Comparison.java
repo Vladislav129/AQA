@@ -1,17 +1,15 @@
 package Lesson_7;
 
 public class Comparison {
-    public boolean comp1(int a, int b) {
-        return a != b;
-    }
-    public boolean comp2(int a, int b) {
-        return a > b;
-    }
-    public boolean comp3(int a, int b) {
-        return a < b;
-    }
-    public boolean comp4(int a, int b) {
-        return a == b;
+    public static boolean comparison(int a, int b) {
+        if (a > b) {
+            return a > b;
+        } else if (a < b) {
+            return a < b;
+        } else {
+            return a == b;
+        }
     }
 }
+
 
