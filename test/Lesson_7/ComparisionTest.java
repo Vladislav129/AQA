@@ -1,9 +1,12 @@
-import Lesson_7.Comparison;
+package Lesson_7;
+
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
 public class ComparisionTest {
+
     private final Comparison comparison = new Comparison();
+
     @Test(description = "проверка сравнений")
     public void testCompare() {
     int a = 1;

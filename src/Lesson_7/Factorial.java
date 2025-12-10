@@ -1,6 +1,7 @@
 package Lesson_7;
 
 public class Factorial {
+
     public int add(int n){
         if (n<0) {
             throw new IllegalArgumentException("Факториал не определен");
