@@ -1,4 +1,5 @@
-import Lesson_7.AreaTriangle;
+package Lesson_7;
+
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
@@ -7,6 +8,7 @@ import org.junit.jupiter.params.provider.CsvSource;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class AreaTriangleTest {
+
     private final AreaTriangle areaTriangle = new AreaTriangle();
     @DisplayName("Проверка формулы площади треугольника")
     @Test
@@ -16,6 +18,7 @@ class AreaTriangleTest {
         int c = 6;
         assertEquals(12, areaTriangle.area(a,b,c));
     }
+
     @ParameterizedTest
     @CsvSource({"2,4,5,3.799671038392666",
             "5,5,6,12.0",

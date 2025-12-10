@@ -1,6 +1,7 @@
 package Lesson_7;
 
 public class Comparison {
+
     public static boolean comparison(int a, int b) {
         if (a > b) {
             return a > b;

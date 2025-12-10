@@ -1,4 +1,5 @@
-import Lesson_7.Factorial;
+package Lesson_7;
+
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
@@ -8,7 +9,9 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
 class FactorialTest {
+
     private final Factorial factorial = new Factorial();
+
 @DisplayName("Проверка факториала")
     @Test
     public void testFactorial() {

@@ -1,10 +1,13 @@
-import Lesson_7.Comparison;
+package Lesson_7;
+
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 class ComparisonTest {
+
     private final Comparison comparison = new Comparison();
+
     @DisplayName("Проверка сравнения")
     @Test
     public void ComparisonTest() {
