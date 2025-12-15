@@ -27,6 +27,24 @@ public class ReplenishmentForm extends SettingTest {
     @FindBy (xpath = "//section[@class='pay']//img[@alt='Белкарт']")
     private WebElement imgBelcard;
 
+    @FindBy (xpath = "//section[@class='pay']//a")
+    private WebElement moreService;
+
+    @FindBy (id = "cookie-agree")
+    private WebElement cookieAgree;
+
+    @FindBy (id = "connection-phone")
+    private WebElement connectionPhone;
+
+    @FindBy (id = "connection-sum")
+    private WebElement connectionSum;
+
+    @FindBy (id = "connection-email")
+    private WebElement connectionEmail;
+
+    @FindBy (xpath = "//button[contains(text(), 'Продолжить')]")
+    private WebElement buttonContinue;
+
     public ReplenishmentForm() {
         driver.get("https://www.mts.by/");
         PageFactory.initElements(driver, this);
@@ -38,5 +56,35 @@ public class ReplenishmentForm extends SettingTest {
         String actualName = nameBlock.getText().replace("\n"," ").trim();
         System.out.println(actualName);
         Assertions.assertEquals(expectedName, actualName);
+    }
+
+    @Test
+    public void checkImg(){
+        Assertions.assertTrue(imgVisa.isDisplayed());
+        Assertions.assertTrue(imgVerifiedVisa.isDisplayed());
+        Assertions.assertTrue(imgMasterCard.isDisplayed());
+        Assertions.assertTrue(imgBelcard.isDisplayed());
+    }
+
+    @Test
+    public void checkMoreService(){
+        cookieAgree.click();
+        moreService.click();
+        driver.navigate().back();
+    }
+
+    @Test
+    public void checkFieldsReplenishment(){
+        String phone = "297777777";
+        String sum = "15";
+        String email = "testemail@mail.ru";
+        cookieAgree.click();
+        connectionPhone.click();
+        connectionPhone.sendKeys(phone);
+        connectionSum.click();
+        connectionSum.sendKeys(sum);
+        connectionEmail.click();
+        connectionEmail.sendKeys(email);
+        buttonContinue.click();
     }
 }
