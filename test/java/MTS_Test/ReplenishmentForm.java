@@ -3,6 +3,7 @@ package MTS_Test;
 import Core.SettingTest;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
@@ -30,9 +31,6 @@ public class ReplenishmentForm extends SettingTest {
     @FindBy (xpath = "//section[@class='pay']//a")
     private WebElement moreService;
 
-    @FindBy (id = "cookie-agree")
-    private WebElement cookieAgree;
-
     @FindBy (id = "connection-phone")
     private WebElement connectionPhone;
 
@@ -47,6 +45,11 @@ public class ReplenishmentForm extends SettingTest {
 
     public ReplenishmentForm() {
         driver.get("https://www.mts.by/");
+        try{
+            driver.findElement(By.xpath("//button[contains(text(),'Принять')]")).click();
+        }catch(Exception e){
+            System.out.println("Куки не найден");
+        }
         PageFactory.initElements(driver, this);
     }
 
@@ -68,7 +71,6 @@ public class ReplenishmentForm extends SettingTest {
 
     @Test
     public void checkMoreService(){
-        cookieAgree.click();
         moreService.click();
         driver.navigate().back();
     }
@@ -78,7 +80,6 @@ public class ReplenishmentForm extends SettingTest {
         String phone = "297777777";
         String sum = "15";
         String email = "testemail@mail.ru";
-        cookieAgree.click();
         connectionPhone.click();
         connectionPhone.sendKeys(phone);
         connectionSum.click();
