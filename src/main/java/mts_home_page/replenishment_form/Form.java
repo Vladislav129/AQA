@@ -1,12 +1,13 @@
 package mts_home_page.replenishment_form;
 
-import core.BaseTest;
+import io.qameta.allure.Step;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
-public class Form extends BaseTest {
+public class Form {
+
     private WebDriver driver;
 
     @FindBy(xpath = "//h2[contains(.,'Онлайн пополнение') and contains(.,'без комиссии')]")
@@ -47,12 +48,14 @@ public class Form extends BaseTest {
         PageFactory.initElements(driver, this);
     }
 
+    @Step("Нахождение названия")
     public String getNameBlock() {
         return nameBlock.getText()
                 .replace("\n", " ")
                 .trim();
     }
 
+    @Step("Нахождение иконок банковских карт")
     public boolean imgCards() {
         return imgVisa.isDisplayed() &&
                 imgVerifiedVisa.isDisplayed() &&
@@ -60,13 +63,14 @@ public class Form extends BaseTest {
                 imgMasterCardSecureCode.isDisplayed() &&
                 imgBelcard.isDisplayed();
     }
-
+    @Step("Нахождение ссылки и нажатие на эту ссылку с возвращением на главную страницу")
     public Form clickService() {
         moreService.click();
         driver.navigate().back();
         return this;
     }
 
+    @Step("Ввод тестовых данны и нажатие на кнопку продолжить")
     public Form inputData(String phone, String sum, String email) {
         connectionPhone.click();
         connectionPhone.sendKeys(phone);

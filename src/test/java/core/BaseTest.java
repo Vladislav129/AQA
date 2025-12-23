@@ -1,40 +1,43 @@
 package core;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
-import org.junit.jupiter.api.AfterAll;
-import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.BeforeAll;
-import org.junit.jupiter.api.BeforeEach;
+import io.qameta.allure.Allure;
+import org.junit.jupiter.api.*;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
 
+import static core.Screenshot.attachScreenshot;
+
+@TestInstance(TestInstance.Lifecycle.PER_CLASS)
 abstract public class BaseTest {
-    protected static WebDriver driver;
-    protected static WebDriverWait wait;
+    protected WebDriver driver;
+    protected WebDriverWait wait;
 
 
-    @BeforeAll
-    public static void setUp() {
+    @BeforeEach
+    public void setUp() {
         WebDriverManager.chromedriver().setup();
         driver = new ChromeDriver();
         driver.manage().window().maximize();
-        driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(10));
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
+        driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(15));
+        wait = new WebDriverWait(driver, Duration.ofSeconds(20));
         driver.get("https://www.mts.by/");
-        wait = new WebDriverWait(driver, Duration.ofSeconds(10));
         try{
-            driver.findElement(By.xpath("//button[contains(text(),'Принять')]")).click();
+            WebElement elementCookie = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//button[@class = 'btn btn_black cookie__ok']")));
+            elementCookie.click();
         }catch(Exception e){
             System.out.println("Куки не найден");
         }
     }
 
-    @AfterAll
-    public static void tearDown() {
+    @AfterEach
+    public void tearDown() {
         driver.close();
         driver.quit();
     }

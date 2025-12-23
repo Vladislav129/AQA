@@ -1,12 +1,15 @@
 package mts_home_page.replenishment_form;
 
-import core.BaseTest;
+
+import io.qameta.allure.Step;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
-public class FormInputField extends BaseTest {
+public class FormInputField {
+
+    private WebDriver driver;
 
     @FindBy (xpath = ".//input[@placeholder= 'Номер телефона']")
     WebElement inputPhone;
@@ -49,50 +52,62 @@ public class FormInputField extends BaseTest {
         PageFactory.initElements(driver, this);
     }
 
+    @Step("Получение вложенного текста")
     public String getInputPhone() {
         return inputPhone.getAttribute("placeholder");
     }
 
+    @Step("Получение вложенного текста")
     public String getConnectionSum() {
         return connectionSum.getAttribute("placeholder");
     }
 
+    @Step("Получение вложенного текста")
     public String getConnectionEmail() {
         return connectionEmail.getAttribute("placeholder");
     }
 
+    @Step("Получение вложенного текста")
     public String getInstalmentScore() {
         return instalmentScore.getAttribute("placeholder");
     }
 
+    @Step("Получение вложенного текста")
     public String getInstalmentSum() {
         return instalmentSum.getAttribute("placeholder");
     }
 
+    @Step("Получение вложенного текста")
     public String getInstalmentEmail() {
         return instalmentEmail.getAttribute("placeholder");
     }
 
+    @Step("Получение вложенного текста")
     public String getInternetPhone() {
         return internetPhone.getAttribute("placeholder");
     }
 
+    @Step("Получение вложенного текста")
     public String getInternetSum() {
         return internetSum.getAttribute("placeholder");
     }
 
+    @Step("Получение вложенного текста")
     public String getInternetEmail() {
         return internetEmail.getAttribute("placeholder");
     }
 
+    @Step("Получение вложенного текста")
     public String getScoreArrears() {
         return scoreArrears.getAttribute("placeholder");
     }
 
+    @Step("Получение вложенного текста")
     public String getArrearsSum() {
         return arrearsSum.getAttribute("placeholder");
     }
 
+    @Step("Получение вложенного текста")
     public String getArrearsEmail() {
         return arrearsEmail.getAttribute("placeholder");
     }
